@@ -31,7 +31,7 @@ function Logo() {
 function NavItems({ onNavigate }) {
   const location = useLocation();
   return (
-    <nav className="flex flex-row gap-1 items-center justify-center">
+    <nav className="flex flex-col lg:flex-row gap-1 lg:items-center lg:justify-center">
       {NAV.map((item) => {
         const active = item.path === "/" ? location.pathname === "/" : location.pathname.startsWith(item.path);
         return (
@@ -100,7 +100,7 @@ export default function Layout() {
 
       {/* Mobile drawer */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 flex">
+        <div className="lg:hidden fixed inset-0 z-[100] flex">
           <div className="absolute inset-0 bg-black/50" onClick={() => setMobileOpen(false)} />
           <aside className="relative w-72 max-w-[80%] bg-sidebar flex flex-col animate-fade-in">
             <div className="flex items-center justify-between p-5 border-b border-border">
@@ -114,9 +114,9 @@ export default function Layout() {
       )}
 
       {/* Main */}
-      <div className=" pt-[160px]">
+      <div className=" lg:pt-[160px]">
         {/* Top bar */}
-        <header className=" top-[80px] w-full border-b border-border bg-background/80 backdrop-blur-xl fixed z-[50]">
+        <header className=" lg:top-[80px] w-full border-b border-border bg-background/80 backdrop-blur-xl lg:fixed max-sm:sticky z-[50]">
           <div className="flex items-center gap-3 px-4 sm:px-6 h-16">
             <button className="lg:hidden p-2 -ml-2 rounded-lg hover:bg-muted" onClick={() => setMobileOpen(true)}>
               <Menu className="w-5 h-5" />
