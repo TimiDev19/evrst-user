@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode — Lilac White surface */
+    --background: 268 62% 95%;
+    --foreground: 260 39% 4.5%;
+    --card: 0 0% 100%;
+    --card-foreground: 260 39% 4.5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 39% 4.5%;
+    --primary: 272 64% 51%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 40% 92%;
+    --secondary-foreground: 272 40% 30%;
+    --muted: 270 35% 90%;
+    --muted-foreground: 270 20% 40%;
+    --accent: 272 50% 94%;
+    --accent-foreground: 272 64% 35%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 30% 86%;
+    --input: 270 30% 86%;
+    --ring: 272 64% 51%;
+    --positive: 160 74% 40%;
+    --positive-foreground: 0 0% 100%;
+    --positive-soft: 160 74% 94%;
+    --negative: 0 80% 60%;
+    --negative-soft: 0 80% 95%;
+    --chart-1: 272 64% 51%;
+    --chart-2: 160 74% 45%;
+    --chart-3: 43 74% 56%;
+    --chart-4: 197 70% 50%;
+    --chart-5: 12 76% 61%;
+    --radius: 0.75rem;
+    --font-heading: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 260 39% 4.5%;
+    --sidebar-primary: 272 64% 51%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 50% 94%;
+    --sidebar-accent-foreground: 272 64% 35%;
+    --sidebar-border: 270 30% 86%;
+    --sidebar-ring: 272 64% 51%;
+  }
+
+  .dark {
+    /* Dark mode — Void surface, Deep Plum panels (primary experience) */
+    --background: 260 39% 4.5%;
+    --foreground: 268 62% 95%;
+    --card: 262 38% 9.6%;
+    --card-foreground: 268 62% 95%;
+    --popover: 262 38% 9.6%;
+    --popover-foreground: 268 62% 95%;
+    --primary: 272 64% 51%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 262 30% 16%;
+    --secondary-foreground: 268 62% 90%;
+    --muted: 262 24% 15%;
+    --muted-foreground: 268 25% 70%;
+    --accent: 272 40% 20%;
+    --accent-foreground: 268 62% 95%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 262 28% 18%;
+    --input: 262 28% 18%;
+    --ring: 272 64% 51%;
+    --positive: 160 74% 53%;
+    --positive-foreground: 260 39% 6%;
+    --positive-soft: 160 60% 14%;
+    --negative: 0 75% 62%;
+    --negative-soft: 0 50% 16%;
+    --chart-1: 272 64% 61%;
+    --chart-2: 160 74% 53%;
+    --chart-3: 43 74% 60%;
+    --chart-4: 197 70% 55%;
+    --chart-5: 12 76% 65%;
+    --sidebar-background: 262 38% 7%;
+    --sidebar-foreground: 268 62% 90%;
+    --sidebar-primary: 272 64% 51%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 272 35% 18%;
+    --sidebar-accent-foreground: 268 62% 95%;
+    --sidebar-border: 262 28% 16%;
+    --sidebar-ring: 272 64% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer utilities {
+  .text-positive { color: hsl(var(--positive)); }
+  .bg-positive { background-color: hsl(var(--positive)); }
+  .text-negative { color: hsl(var(--negative)); }
+  .bg-negative { background-color: hsl(var(--negative)); }
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 9999px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .glass-card {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(12px);
+  }
+}
