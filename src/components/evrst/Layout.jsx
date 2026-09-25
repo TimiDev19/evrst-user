@@ -31,7 +31,7 @@ function Logo() {
 function NavItems({ onNavigate }) {
   const location = useLocation();
   return (
-    <nav className="flex flex-col gap-1">
+    <nav className="flex flex-row gap-1 items-center justify-center">
       {NAV.map((item) => {
         const active = item.path === "/" ? location.pathname === "/" : location.pathname.startsWith(item.path);
         return (
@@ -74,15 +74,17 @@ export default function Layout() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-[100dvh] bg-background">
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex fixed inset-y-0 left-0 w-64 flex-col border-r border-border bg-sidebar">
+      <aside className="hidden lg:flex h-[80px] w-[100vw] fixed z-[50] inset-y-0 left-0 flex-row items-center justify-between border-r border-border bg-sidebar">
         <div className="p-5"><Logo /></div>
+
         <div className="flex-1 overflow-y-auto scrollbar-thin px-3">
           <NavItems />
-          <KycBanner />
+          {/* <KycBanner /> */}
         </div>
-        <div className="p-3 border-t border-border">
+
+        <div className="p-3">
           <Link to="/profile" className="flex items-center gap-3 p-2 rounded-xl hover:bg-muted transition-colors">
             <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center text-primary font-semibold text-sm">
               {USER.nickname[0]}
@@ -112,9 +114,9 @@ export default function Layout() {
       )}
 
       {/* Main */}
-      <div className="lg:pl-64">
+      <div className=" pt-[160px]">
         {/* Top bar */}
-        <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-xl">
+        <header className=" top-[80px] w-full border-b border-border bg-background/80 backdrop-blur-xl fixed z-[50]">
           <div className="flex items-center gap-3 px-4 sm:px-6 h-16">
             <button className="lg:hidden p-2 -ml-2 rounded-lg hover:bg-muted" onClick={() => setMobileOpen(true)}>
               <Menu className="w-5 h-5" />
